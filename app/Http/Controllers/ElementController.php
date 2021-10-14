@@ -35,5 +35,24 @@ class ElementController extends Controller
      
     }
 
+    public function update_element_post(Request $request){
+        //        $element = Element::where('code', $request->input('code'))->first();
+        
+        //        $element->amount++;
+        //        $element->save();
+        
+                Element::where('code', $request->input('code'))->increment('amount', 1);
+        
+                return redirect('/barras')->with('message','Elemento agregado con exito');;
+             
+            }
+        
+           // public function update2(Request $request){
+              //  $Elementdata = request()->except('_token');
+        
+              //  Element::insert($Elementdata);
+        //        Element::update('update elements set amount = amount + 1 where id = ?', $request[id]);
+            //}
+
     
 }
